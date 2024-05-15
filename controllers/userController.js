@@ -36,7 +36,8 @@ export const register=catchAsyncError(async (req,res,next)=>{
     //         user
     //     }
     // )
-
+ // Set the Access-Control-Allow-Origin header
+  res.header('Access-Control-Allow-Origin', process.env.FRONTEND_URL);
     sendToken(user,200,res,"User Registered Successfully")
 });
 
@@ -60,7 +61,8 @@ export const login=catchAsyncError(async(req,res,next)=>{
         return next(new ErrorHandler("Please provide valid email and password",400));
     }
 
-
+     // Set the Access-Control-Allow-Origin header
+  res.header('Access-Control-Allow-Origin', process.env.FRONTEND_URL);
     sendToken(user,200,res,"User logged in successfully!")
 });
 
@@ -73,6 +75,8 @@ export const logout=catchAsyncError(async(req,res,next)=>{
          secure:true,
         sameSite:"None"
     })
+     // Set the Access-Control-Allow-Origin header
+  res.header('Access-Control-Allow-Origin', process.env.FRONTEND_URL);
     .json({
         success:true,
         message:"User logged out successfully!"
@@ -93,6 +97,7 @@ export const getAllUser=catchAsyncError(async(req,res,next)=>{
         success:true,
         users
     })
+    
 })
 
 export const getOneUser=catchAsyncError(async(req,res,next)=>{
