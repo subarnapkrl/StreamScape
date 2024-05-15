@@ -61,7 +61,6 @@ export const login=catchAsyncError(async(req,res,next)=>{
     }
 
      // Set the Access-Control-Allow-Origin header
-  res.header('Access-Control-Allow-Origin', process.env.FRONTEND_URL);
     sendToken(user,200,res,"User logged in successfully!")
 });
 
