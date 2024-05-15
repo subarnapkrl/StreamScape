@@ -20,7 +20,7 @@ dotenv.config({
 });
 
 app.use(cors({
-    origin:'*',
+    origin:'https://streamscpe.netlify.app/',
     methods:["GET","POST","PUT","DELETE"],
     credentials:true
 }));
